@@ -1,0 +1,5 @@
+version: 2
+
+models:
+  - name: locations
+    description: Location dimension table. The grain of the table is one row per location.

@@ -1,0 +1,13 @@
+version: 2
+
+sources:
+  - name: pos
+    schema: raw
+    description: E-commerce data for the Jaffle Shop
+    tables:
+      - name: stores
+        loaded_at_field: opened_at
+      - name: products
+        description: One record per SKU for items sold in stores
+      - name: supplies
+        description: One record per supply per SKU of items sold in stores

@@ -1,0 +1,37 @@
+version: 2
+
+models:
+  - name: stg_crm__customers
+    description: Customer data with basic cleaning and transformation applied, one row per customer.
+    columns:
+      - name: customer_id
+        description: The unique key for each customer.
+        data_tests:
+          - not_null
+          - unique
+  - name: stg_crm__orders
+    description: Order data with basic cleaning and transformation applied, one row per order.
+    data_tests:
+      - dbt_utils.expression_is_true:
+          expression: "order_total - tax_paid = subtotal"
+    columns:
+      - name: order_id
+        description: The unique key for each order.
+        data_tests:
+          - not_null
+          - unique
+  - name: stg_crm__order_items
+    description: Individual food and drink items that make up our orders, one row per item.
+    columns:
+      - name: order_item_id
+        description: The unique key for each order item.
+        data_tests:
+          - not_null
+          - unique
+      - name: order_id
+        description: The corresponding order each order item belongs to
+        data_tests:
+          - not_null
+          - relationships:
+              to: ref('stg_crm__orders')
+              field: order_id

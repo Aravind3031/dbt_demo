@@ -1,0 +1,7 @@
+version: 2
+
+models:
+  - name: orders
+    description: Order overview data mart, offering key details for each order inlcluding if it's a customer's first order and a food vs. drink item breakdown. One row per order.
+  - name: order_items
+    description: Items contatined in each order. The grain of the table is one row per order item.

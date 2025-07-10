@@ -1,0 +1,7 @@
+version: 2
+
+models:
+  - name: products
+    description: Product dimension table. The grain of the table is one row per product.
+  - name: supplies
+    description: Supplies dimension table. The grain of the table is one row per supply and product combination.
