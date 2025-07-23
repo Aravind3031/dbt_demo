@@ -1,0 +1,11 @@
+version: 2
+
+snapshots:
+  - name: snap_customers
+    description: "Tracks historical changes to customer data."
+    config:
+      schema: history
+      strategy: check
+      unique_key: id
+      check_cols: ["name", "firstname", "lastname", "email", "address", "city", "state", "zip"]
+      hard_deletes: invalidate

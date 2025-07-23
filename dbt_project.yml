@@ -27,6 +27,10 @@ seeds:
     +schema: raw
     +enabled: "{{ var('load_source_data', false) }}"
 
+snapshots:
+  retail_analytics:
+    +schema: history
+
 models:
   retail_analytics:
     # Config indicated by + and applies to all files under models/example/

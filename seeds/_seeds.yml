@@ -1,0 +1,15 @@
+version: 2
+
+seeds:
+  - name: raw_customers
+    description: Raw customers data
+  - name: raw_orders
+    description: Raw orders data
+  - name: raw_items
+    description: Raw order items data
+  - name: raw_products
+    description: Raw products data
+  - name: raw_stores
+    description: Raw stores data
+  - name: raw_supplies
+    description: Raw supplies data

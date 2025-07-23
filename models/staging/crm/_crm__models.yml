@@ -3,6 +3,9 @@ version: 2
 models:
   - name: stg_crm__customers
     description: Customer data with basic cleaning and transformation applied, one row per customer.
+    tests:
+      - test_given_expression:
+          expression: "customer_name ilike '%ryan%'"
     columns:
       - name: customer_id
         description: The unique key for each customer.
@@ -22,16 +25,26 @@ models:
           - unique
   - name: stg_crm__order_items
     description: Individual food and drink items that make up our orders, one row per item.
+    config:
+      materialized: table
+      contract:
+        enforced: true
+        alias_types: false
     columns:
       - name: order_item_id
         description: The unique key for each order item.
+        data_type: VARCHAR(255)
         data_tests:
           - not_null
           - unique
       - name: order_id
         description: The corresponding order each order item belongs to
+        data_type: VARCHAR(255)
         data_tests:
           - not_null
           - relationships:
               to: ref('stg_crm__orders')
               field: order_id
+      - name: product_id
+        description: Unique identifier of the ordered product
+        data_type: VARCHAR(255)

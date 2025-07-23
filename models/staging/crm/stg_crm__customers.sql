@@ -14,7 +14,7 @@ renamed as (
         id as customer_id,
 
         ---------- text
-        name as customer_name
+        CAST(name AS VARCHAR(255))as customer_name
 
     from source
 
